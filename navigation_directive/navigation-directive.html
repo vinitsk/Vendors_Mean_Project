@@ -1,0 +1,36 @@
+
+<nav ng-controller='logincontroller as vm' class="navbar navbar-inverse" ng-init="vm.init()">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>.
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Vendor's</a>
+        <a class="navbar-text" ng-if="vm.isLoggedIn()" >Welcome, {{ vm.username }} </a>
+    </div>
+      
+    <div class="collapse navbar-collapse" id="myNavbar">
+      
+      <ul class="nav navbar-nav navbar-right">
+          <li ng-if="vm.isLoggedIn()"><a href="#!/main"><span class="glyphicon glyphicon-user" ></span>Profile</a></li>
+          <li ng-if="!vm.isLoggedIn()"><a href="#!/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <!--  <li ng-if="!vm.isLoggedIn()"><a href="#!/login"><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>-->
+          <li ng-if="vm.isLoggedIn()"><a ng-click="vm.logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
+        
+         <form ng-if="!vm.isLoggedIn()" class="navbar-form navbar-right" role="login" ng-submit="vm.login()">
+      <div class="form-group" ng-class="{'has-error': vm.error}">
+        <input type="text" class="form-control input-sm" placeholder="Username" ng-model="vm.username" autocapitalize="none">
+      </div>
+      <div class="form-group" ng-class="{'has-error': vm.error}">
+        <input type="password" class="form-control input-sm" placeholder="Password" ng-model="vm.password" autocapitalize="none">
+      </div>
+      <button type="submit" class="btn btn-sm btn-success">Login</button>
+    </form>
+        
+    </div>
+  </div>
+</nav>
+  
