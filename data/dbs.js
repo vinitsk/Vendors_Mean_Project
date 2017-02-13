@@ -1,5 +1,5 @@
 var mongoose=require('mongoose');
-var db_url='mongodb://localhost:27017/Mean_Project';
+var db_url='mongodb://localhost:27017/vendors';
 
 mongoose.connect(db_url);
 
@@ -9,5 +9,5 @@ mongoose.connection.on('connected',function(){
 
 
 
-require('./Hotel-Schema.js');
+require('./product_schema.js');
 require('./user.model.js');

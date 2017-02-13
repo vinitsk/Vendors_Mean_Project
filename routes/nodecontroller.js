@@ -1,6 +1,6 @@
 var mongoose=require('mongoose');
 
-var Hotel=mongoose.model('Hotel');
+var Hotel=mongoose.model('Product');
 var path=require('path');
 module.exports.nodecontroller=function(req,res){
     

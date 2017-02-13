@@ -4,6 +4,9 @@ var User=mongoose.model('User');
 var bcrypt=require('bcrypt-nodejs');
 var jwt=require('jsonwebtoken');
 
+
+
+
 module.exports.register=function(req,res){
     var usernames=req.body.username;
     var names=req.body.name||null;
@@ -41,9 +44,12 @@ module.exports.login=function(req,res,next){
         username:username
     }).exec(function(err,user){
         if(err){
-            console.log(err);
+        
+            console.log(user);
         }
         else{
+            console.log("Vinit's password "+password);
+            console.log("Vinit's encrypted password password "+user.password);
             if (bcrypt.compareSync(password,user.password))
                 {
                 console.log('User found as',user);
@@ -54,6 +60,7 @@ module.exports.login=function(req,res,next){
               else
                   {
                       console.log("User not found");
+                      console.log(user);
                   }
         }
         
@@ -94,4 +101,6 @@ module.exports.authenticate=function(req,res,next){
     
     
 }
+
+
 

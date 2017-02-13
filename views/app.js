@@ -1,3 +1,7 @@
+
+
+
+(function(){
 angular.module('myapp',['ngRoute','angular-jwt']).config(config).run(run);
 
 
@@ -21,6 +25,22 @@ function config($httpProvider,$routeProvider){
         }
     }).when('/main',{
         templateUrl:'/main.html',
+        controllerAs:'vm',
+         access:{
+            restricted:false
+        }
+        
+    }).when('/search/',{
+        templateUrl:'/search.html',
+        controller:SearchController,
+        controllerAs:'vm',
+         access:{
+            restricted:false
+        }
+        
+    }).when('/searchresult/:values',{
+        templateUrl:'/search.html',
+        controller:SearchResultController,
         controllerAs:'vm',
          access:{
             restricted:false
@@ -53,3 +73,4 @@ function run($rootScope,$location,$window,authFactory){
     
     
     
+})();
