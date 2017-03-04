@@ -2,36 +2,32 @@ angular.module('myapp').controller('SearchResultController',SearchResultControll
 
 
 
-var SearchResultController=function($http,$window,$routeParams){
- /*   var vm=this;
-    console.log("Values"+$routeParams.values);
-  
-    var keyword=$routeParams.values;
-   vm.searchProducts=keyword ;   */
-      var vm=this;
-   //   var searchValue=$routeParams.values;
-    
-var searchValue=
-        {
-            search:$routeParams.values
-        };    
-    
-    console.log("The values were"+searchValue);
-      $http.post('/search',searchValue).then(function(result){
-         vm.searchProducts=result.data;
-            console.log(result);
-           
-         
-            
-            
-        });
-    
-  
-    
-    
+var SearchResultController=function($http,$window,$routeParams,$rootScope){
 
-    
-    
-    
-    
+
+   var vm=this;
+
+
+
+   var searched={ 
+      searchValue:$routeParams.values
+   };
+
+
+
+   console.log("The values were"+searched.searchValue);
+   $http.post('/search/',searched).then(function(response){
+      console.log("View Value");
+      console.log(JSON.stringify(response.data,4,0,null));
+      vm.searchProducts=response.data;
+   });
+
+
+
+
+
+
+
+
+
 }

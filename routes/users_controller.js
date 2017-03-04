@@ -80,7 +80,7 @@ module.exports.authenticate=function(req,res,next){
             jwt.verify(token,'vinit',function(err,doc)
                       {
                         if (err){
-                            res.json('Invalid Taoken');
+                            res.json('Invalid Token');
                         }
                         else{
                             req.user=doc.username;

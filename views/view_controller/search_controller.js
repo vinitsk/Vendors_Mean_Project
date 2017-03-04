@@ -2,14 +2,13 @@ angular.module('myapp').controller('SearchController',SearchController);
 
 
 
-var SearchController=function($http,$window){
-    var vm=this;
-   
-    
-    
-    
-    
-     vm.search=search;
+var SearchController=function($http,$window,$location){
+    console.log("Hulala");
+ console.log(JSON.stringify(this,null,4));
+ 
+ 
+ var vm=this;
+ vm.search=search;
     
      function search(){
          
@@ -31,8 +30,10 @@ var SearchController=function($http,$window){
            
         $window.location.assign("#!/searchresult/"+vm.searchResult);*/
          var searchValue=vm.searchValue;
+      console.log("X men"+searchValue);
         
-         $window.location.assign("#!/searchresult/"+searchValue);
+         //$window.location.assign("#!/searchresult/"+searchValue);
+      $location.url("/searchresult/"+searchValue);
          
     }
     

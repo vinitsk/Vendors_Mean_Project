@@ -17,9 +17,7 @@ router
      .route('/loginuser')
      .post(controllerUser.login);
 
-router 
-     .route('/search')
-     .post(searchController.search);
+
 
 module.exports=router;
     
